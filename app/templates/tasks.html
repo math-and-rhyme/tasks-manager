@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1> My Tasks </h1>
+    <div class="tasklist_div">
+        <ul class="tasklist_list list-unstyled">
+            {% for task in tasks_data %}
+                <li class="task-card">
+                    <strong>{{task.title}}</strong> {{task.info}} - {% if task.done %}Done{% else %}Not Done{% endif %}
+                </li >
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

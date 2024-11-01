@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>Task Manager</h1>
+    <p>Welcome to the task list. Add the tasks to complete.</p>
+
+    <form id="add_task" action="/" method="POST">
+        <div class="add-task-container">
+            <p>
+                <label for="task_title">Task:</label>
+                <input type="text" maxlength="100" id="task_title" name="title" placeholder="example: feed the cat" required>
+            </p>
+            <p>
+                <label for="task_info">Description:</label>
+                <textarea name="info" id="task_info" placeholder="example: do this after coming home"></textarea>
+            </p>
+            <button type="submit" id="add" class="button add_button">Add Task</button>
+        </div>
+    </form>
+    
+    <div id="response"></div>
+
+    <div id="task_added_message">
+        <!-- This can be used for displaying messages -->
+        <strong>{{status_message}}</strong>
+    </div>
+    
+    <ul id="task_list">
+        <!-- Dynamically added tasks will appear here -->
+    </ul>
+
+{% endblock %}
+
+

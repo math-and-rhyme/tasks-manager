@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <title>task_manager</title>
+        <!-- including the styles file -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <!-- including the js script file -->
+        <!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
+    </head>
+    
+    <body>
+        <!-- page header -->
+        <h1> My Tasks </h1>
+        <div class="menu">
+            <a href="/">Main</a> 
+            <a href="/about">About</a>
+            <a href="/tasks">TASKS</a>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
+
+
+

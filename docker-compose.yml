@@ -1,0 +1,25 @@
+services:                         # the containers to be created
+  db:
+    build: 
+      context: ./db               # here is the dockerfile for PostgreSQL
+      dockerfile: Dockerfile      # name of the dockerfile
+    environment:
+      POSTGRES_PASSWORD: take-it-easy-123
+      POSTGRES_USER: just_a_user
+      POSTGRES_DB: tasks_db
+    ports:
+      - "5432:5432"               # mapping the port 5432 of the container to 5432 port on the host
+  app:
+    build: 
+      context: ./app              # here is the dockerfile for the app
+      dockerfile: Dockerfile      # name of the dockerfile
+    environment:
+      POSTGRES_PASSWORD: take-it-easy-123
+      POSTGRES_USER: just_a_user
+      POSTGRES_DB: tasks_db
+      # FLASK_ENV: development  # Set Flask environment to development for debug mode
+    ports:
+      - "5000:5000"
+      # - "5678:5678"  # Map port for debugpy (optional, if using remote debugging)
+    depends_on:
+      - db
